@@ -66,27 +66,3 @@ def processing():
     rows = db(db.online_orders.user_ID == session.auth.user.id).select(orderby = ~ db.online_orders.id)
     return locals()
 
-
-
-
-
-
-def update_record():
-     form = crud.update(db.table, request.args(0))
-
-     delete_confirmation = T('Are you sure you want to delete this record?')
-
-     delBtn = A('Delete', _href=URL('delete_record',
-                                    args=['table', request.args(0)]),
-                          _message=delete_confirmation,
-                          _class='btn btn-small btn-danger',
-                          _id='delBtn'
-                          )
-     form.element('input', _type='submit', replace=lambda me: CAT(me, delBtn))
-     return dict(form=form)
-
-def delete():
-    tablename = request.args(0)
-    rec_id = request.args(1)
-    crud.delete(db[tablename], rec_id,
-                               next=URL('select_table'), message=T('Deleted'))
