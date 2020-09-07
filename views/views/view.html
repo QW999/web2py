@@ -1,0 +1,28 @@
+{{extend 'layout.html'}}
+<h7>profile/view</h7>
+
+<h1>My profie/view</h1>
+
+<hr/>
+{{ for x in rows: }}
+<div class = 'row'>
+    <img class = 'col col-lg-4 col-md-6 col-sm-6 col-xs-12' src = '{{=x.user_image}}' alt = 'image' />
+    <div class = 'col col-lg-8 col-md-6 col-sm-6 col-xs-12'>
+        <p class = 'lead'>
+        <p>user_ID: {{=session.auth.user.id}}</p>
+        <p>user_name: {{=x.user_name}}</p>
+        <p>email: <a href = '{{=x.email}}' target='_new'>{{=x.email}}</a></p>
+        <p>password: {{=x.password}}</p>
+        <p>data_account_created: {{=x.data_account_created}}</p>
+        <p>nickname: {{=x.nickname}}</p>
+        <p>user_role: {{=x.user_role}}</p>
+
+    </div>
+</div>
+<hr/>
+{{ pass }}
+
+
+        <p>Dealer: {{=x.farm_name}}</p>
+        <p>Address: {{=x.farm_address}}</p>
+        <p>Info: <a href = '{{=x.farm_website}}' target='_new'>{{=x.farm_website}}</a></p>

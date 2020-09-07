@@ -1,0 +1,26 @@
+{{extend 'layout.html'}}
+
+<h7>products/processing</h7>
+
+<h1>Place by order</h1>
+
+<p>The item was added to your cart!</p>
+
+<table class = 'table table-striped table-hover'>
+
+    {{ for x in rows: }}
+
+    <tr>
+        <td>{{=x.quantity}} kg</td>
+        <td>{{=prodDict[x.productId]}}</td>
+        <td>{{=x.date_ordered}}</td>
+        <td><a href = 'delete'>Delete</a></td>
+    </tr>
+    
+    {{ pass }}
+    
+</table>
+<br/>
+&nbsp;&nbsp;&nbsp;<a href = 'view'>BACK to product catalog page</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button>Check out</button>
+<hr/>

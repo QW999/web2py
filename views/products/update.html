@@ -1,0 +1,23 @@
+{{extend 'layout.html'}}
+
+<h7>products/update</h7>
+
+<h1>Update product description and stock quantity</h1>
+
+{{ if isValid == True: }}
+
+{{=form}}
+
+{{ pass }}
+
+{{ if isValid == False: }}
+
+<p>Not Authorized</p>
+
+{{ pass }}
+
+<br/>
+
+<hr/>
+
+| <a href='../view'>view</a> | <a href='../post'>post</a> | <a href='../myposts'>myposts</a>

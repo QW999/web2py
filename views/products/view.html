@@ -1,0 +1,43 @@
+{{extend 'layout.html'}}
+
+<h7>products/view</h7>
+<h1>Fresh Veggies</h1>
+<h1>Product catalog page</h1>
+
+<hr/>
+
+{{ for x in rows: }}
+
+<div class = 'row'>
+    <img class = 'col col-lg-4 col-md-6 col-sm-6 col-xs-12' src = '{{=x.product_image}}' alt = 'image' />
+    <div class = 'col col-lg-8 col-md-6 col-sm-6 col-xs-12'>
+        <p class = 'lead'><b>{{=x.product_name}}</b>
+        
+        <p><b>price: {{=x.product_price + str(' lei')}}</b></p>
+                
+        <p>dealer: {{=x.farm_name}}</p>
+        
+        <p>address: {{=x.farm_address}}</p>
+        
+        <p>origin: {{=x.origin_from}}</p>
+        
+        <p>info: <a href = '{{=x.farm_website}}' target='_new'>{{=x.farm_website}}</a></p>
+        
+        <p>posted by: &nbsp; {{ =userdict[x.created_by] }}</p>
+        
+        <p><form method = 'post' action = 'processing'>
+                <input type = 'hidden' name = 'productId' value = '{{=x.id}}' />
+                <input type = 'text' size = 2 name = 'quantity' value = 1 />
+                <input class = 'btn-primary' type = 'submit' value = 'Add product to cart' />
+            </form></p>
+        
+        
+    
+    <a href = 'post'>Post new products</a>
+    
+    </div>
+</div>
+
+<hr/>
+
+{{ pass }}
